@@ -77,6 +77,9 @@ int main(int argc, char *argv[])
             {
                 full_temp_parameters(data_array, actual_records);
             }
+
+            fclose(input_file);
+            free(data_array);
         }
         else
         {
