@@ -20,7 +20,7 @@ int64_t parse_file(FILE *file_name, data_record_t data_array[], uint64_t array_l
 {
     int16_t loc_year;
     int8_t loc_month, loc_day, loc_hour, loc_minute;
-    int16_t loc_temperature;
+    int8_t loc_temperature;
     int64_t current_record = 0;
     int64_t actual_records = 0;
        
@@ -31,7 +31,7 @@ int64_t parse_file(FILE *file_name, data_record_t data_array[], uint64_t array_l
 
         fgets(temp_string, 128, file_name);
         
-        args_num = sscanf(temp_string, "%hd;%hhd;%hhd;%hhd;%hhd;%hd",
+        args_num = sscanf(temp_string, "%hd;%hhd;%hhd;%hhd;%hhd;%hhd",
             &loc_year,
             &loc_month, 
             &loc_day,
@@ -132,8 +132,8 @@ void full_temp_parameters(data_record_t data_array[], uint64_t array_length)
             charecteristics[current_month - 1].month_avg_temp += data_array[i].temperature;
     }
 
-    int16_t year_max_temp = -99;
-    int16_t year_min_temp = 99;
+    int8_t year_max_temp = -99;
+    int8_t year_min_temp = 99;
     int actual_month = 12;
     float year_avg_temp = 0;
     for (int i = 0; i < 12; i++)

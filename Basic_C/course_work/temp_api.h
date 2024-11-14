@@ -10,13 +10,13 @@ typedef struct data_record_t
     int8_t day;
     int8_t hour;
     int8_t minute;
-    int16_t temperature;
+    int8_t temperature;
 } data_record_t;
 
 typedef struct month_characteristics_t
 {
-    int16_t month_max_temp;
-    int16_t month_min_temp;
+    int8_t month_max_temp;
+    int8_t month_min_temp;
     float month_avg_temp;
     int64_t month_records;
 } month_characteristics_t;

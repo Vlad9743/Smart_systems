@@ -67,19 +67,23 @@ int main(int argc, char *argv[])
         {
             int64_t number_of_records = count_strings_number(input_file);
             data_record_t *data_array = malloc(number_of_records * sizeof(data_record_t));
-            int64_t actual_records = parse_file(input_file, data_array, number_of_records);
 
-            if (month_for_analisys != 0)
+            if (data_array)
             {
-                month_temp_parameters(data_array, actual_records, month_for_analisys);
-            }
-            else
-            {
-                full_temp_parameters(data_array, actual_records);
-            }
+                int64_t actual_records = parse_file(input_file, data_array, number_of_records);
 
-            fclose(input_file);
-            free(data_array);
+                if (month_for_analisys != 0)
+                {
+                    month_temp_parameters(data_array, actual_records, month_for_analisys);
+                }
+                else
+                {
+                    full_temp_parameters(data_array, actual_records);
+                }
+
+                fclose(input_file);
+                free(data_array);
+            }
         }
         else
         {
